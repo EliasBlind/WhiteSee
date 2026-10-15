@@ -1,33 +1,33 @@
 const vscode = require('vscode');
 
 const OPS = {
-  SS:   { n: 'push',    a: 'num', d: 'Stack: положить число в стек' },
-  SLS:  { n: 'dup',     d: 'Stack: дублировать верх стека' },
-  SLT:  { n: 'swap',    d: 'Stack: поменять местами два верхних' },
-  SLL:  { n: 'drop',    d: 'Stack: убрать верх стека' },
-  STS:  { n: 'copy',    a: 'num', d: 'Stack: скопировать n-й элемент наверх' },
-  STL:  { n: 'slide',   a: 'num', d: 'Stack: убрать n элементов под верхним' },
+  SS: { n: 'push', a: 'num', d: 'Stack: положить число в стек' },
+  SLS: { n: 'dup', d: 'Stack: дублировать верх стека' },
+  SLT: { n: 'swap', d: 'Stack: поменять местами два верхних' },
+  SLL: { n: 'drop', d: 'Stack: убрать верх стека' },
+  STS: { n: 'copy', a: 'num', d: 'Stack: скопировать n-й элемент наверх' },
+  STL: { n: 'slide', a: 'num', d: 'Stack: убрать n элементов под верхним' },
 
-  TSSS: { n: 'add',     d: 'Arithmetic: a + b' },
-  TSST: { n: 'sub',     d: 'Arithmetic: a - b' },
-  TSSL: { n: 'mul',     d: 'Arithmetic: a * b' },
-  TSTS: { n: 'div',     d: 'Arithmetic: a / b (целочисленное)' },
-  TSTT: { n: 'mod',     d: 'Arithmetic: a % b' },
-  TTS:  { n: 'store',   d: 'Heap: heap[a] = b' },
-  TTT:  { n: 'load',    d: 'Heap: положить heap[a] в стек' },
+  TSSS:{ n: 'add', d: 'Arithmetic: a + b' },
+  TSST:{ n: 'sub', d: 'Arithmetic: a - b' },
+  TSSL:{ n: 'mul', d: 'Arithmetic: a * b' },
+  TSTS:{ n: 'div', d: 'Arithmetic: a / b (целочисленное)' },
+  TSTT:{ n: 'mod', d: 'Arithmetic: a % b' },
+  TTS: { n: 'store', d: 'Heap: heap[a] = b' },
+  TTT: { n: 'load', d: 'Heap: положить heap[a] в стек' },
 
-  LSS:  { n: 'label',   a: 'lbl', d: 'Flow: метка' },
-  LST:  { n: 'call',    a: 'lbl', d: 'Flow: вызов подпрограммы' },
-  LSL:  { n: 'jmp',     a: 'lbl', d: 'Flow: безусловный переход' },
-  LTS:  { n: 'jz',      a: 'lbl', d: 'Flow: переход, если верх стека == 0' },
-  LTT:  { n: 'jn',      a: 'lbl', d: 'Flow: переход, если верх стека < 0' },
-  LTL:  { n: 'ret',     d: 'Flow: возврат из подпрограммы' },
-  LLL:  { n: 'end',     d: 'Flow: конец программы' },
+  LSS: { n: 'label', a: 'lbl', d: 'Flow: метка' },
+  LST: { n: 'call', a: 'lbl', d: 'Flow: вызов подпрограммы' },
+  LSL: { n: 'jmp', a: 'lbl', d: 'Flow: безусловный переход' },
+  LTS: { n: 'jz', a: 'lbl', d: 'Flow: переход, если верх стека == 0' },
+  LTT: { n: 'jn', a: 'lbl', d: 'Flow: переход, если верх стека < 0' },
+  LTL: { n: 'ret', d: 'Flow: возврат из подпрограммы' },
+  LLL: { n: 'end', d: 'Flow: конец программы' },
 
-  TLSS: { n: 'printc',  d: 'I/O: вывести символ' },
-  TLST: { n: 'printn',  d: 'I/O: вывести число' },
-  TLTS: { n: 'readc',   d: 'I/O: прочитать символ' },
-  TLTT: { n: 'readn',   d: 'I/O: прочитать число' }
+  TLSS: { n: 'printc', d: 'I/O: вывести символ' },
+  TLST: { n: 'printn', d: 'I/O: вывести число' },
+  TLTS: { n: 'readc', d: 'I/O: прочитать символ' },
+  TLTT: { n: 'readn', d: 'I/O: прочитать число' }
 };
 
 function parse(text) {
@@ -236,6 +236,4 @@ function activate(context) {
   );
 }
 
-function deactivate() {}
-
-module.exports = { activate, deactivate };
+module.exports = { activate };
