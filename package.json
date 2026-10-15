@@ -1,0 +1,40 @@
+{
+  "name": "whitespace-lang",
+  "displayName": "Whitespace Language: Highlight & Mnemonics",
+  "description": "Подсветка пробелов/табов/LF и показ команд языка Whitespace текстом",
+  "version": "0.1.0",
+  "publisher": "local",
+  "engines": { "vscode": "^1.75.0" },
+  "categories": ["Programming Languages", "Visualization"],
+  "main": "./extension.js",
+  "activationEvents": ["onLanguage:whitespace"],
+  "contributes": {
+    "languages": [
+      {
+        "id": "whitespace",
+        "aliases": ["Whitespace"],
+        "extensions": [".ws"],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "commands": [
+      { "command": "whitespaceLang.toggleMnemonics", "title": "Whitespace: Показать/скрыть команды текстом" },
+      { "command": "whitespaceLang.disassemble", "title": "Whitespace: Дизассемблировать в новый документ" }
+    ],
+    "configuration": {
+      "title": "Whitespace Language",
+      "properties": {
+        "whitespaceLang.showMnemonics": {
+          "type": "boolean",
+          "default": true,
+          "description": "Показывать команды (push, add, jmp ...) текстом в конце строки"
+        },
+        "whitespaceLang.showNewlineMarker": {
+          "type": "boolean",
+          "default": true,
+          "description": "Показывать маркер ↵ на месте LF"
+        }
+      }
+    }
+  }
+}
